@@ -89,7 +89,7 @@ class QuerydictToDictTestCase(FunctionTestCase):
             'd': '6',
         }
 
-        self.assertDictEqual(self._call_function(QueryDict('a=1&a=2&a=3&b=4&c=5&c=5&d=6')), expected_result)
+        self.assertDictEqual(self._call_function(QueryDict('a=2&a=2&a=3&b=4&c=5&c=5&d=6')), expected_result)
 
 
 class GmtToKstTestCase(FunctionTestCase):
