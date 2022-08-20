@@ -10,7 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
-import os
+import os, sys
 from pathlib import Path
 from datetime import timedelta
 
@@ -94,6 +94,14 @@ DATABASES = {
         'PORT': os.environ.get("DB_PORT"),
     }
 }
+
+if 'test' in sys.argv:
+    DATABASES['default'] = {
+        'ENGINE': os.environ.get('DB_ENGINE'),
+        'USER': os.environ.get('TEST_DB_USER'),
+        'PASSWORD': os.environ.get('TEST_DB_PASSWORD'),
+        'HOST': os.environ.get('TEST_DB_HOST'),
+    }
 
 
 # Internationalization
